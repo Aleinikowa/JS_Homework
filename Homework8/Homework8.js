@@ -19,33 +19,29 @@ smoke.feed();
 function Cat(name) {
     this.name = name;
     var foodAmount = 50;
-    var self = this;
 
-    this.dailyNorm = function(check) {
+    this.dailyNorm = function(amout) {
        
-        if (check < 50) {
+        if (amout < 50) {
             alert ('Корма мало');
-            return foodAmount;
-        } else if (check == undefined) {
-            return foodAmount;
-        } else if (check > 500) {
+        } else if (amout == undefined) {
+            return formatFoodAmount();
+        } else if (amout > 500) {
             alert ('Корма много');
-            return foodAmount;
         } else {
-            foodAmount = check;
-            return foodAmount;
+            foodAmount = amout;
         }        
     }
 
     function formatFoodAmount() {
-        return self.dailyNorm() + 'гр.';
+        return foodAmount + 'гр.';
     }
 
     this.feed = function() {
-        console.log('Насыпаем в миску ' + formatFoodAmount()  + ' корма.');
+        console.log('Насыпаем в миску ' + this.dailyNorm()  + ' корма.');
     }
 }
 
-var smoke = new Cat('Smoki');
-smoke.dailyNorm(67);
+var smoke = new Cat('Smoke');
+smoke.dailyNorm(70);
 smoke.feed();
