@@ -45,3 +45,53 @@ function Cat(name) {
 var smoke = new Cat('Smoke');
 smoke.dailyNorm(70);
 smoke.feed();
+
+//задание 4 - 5
+
+function Animal(name) {
+    this.name = name;
+    var foodAmount = 50;
+    var self = this;
+
+    this.dailyNorm = function(amout) {
+    
+        if (amout < 50) {
+            alert ('Корма мало');
+        } else if (amout == undefined) {
+            return formatFoodAmount();
+        } else if (amout > 500) {
+            alert ('Корма много');
+        } else {
+            foodAmount = amout;
+        }        
+    }
+
+    function formatFoodAmount() {
+        return foodAmount + 'гр.';
+    }
+
+    self.feed = function() {
+        console.log('Насыпаем в миску ' + self.dailyNorm()  + ' корма.');
+    }
+}
+
+function Cat(name) {
+    Animal.apply(this, arguments);
+
+    var animalFeed = this.feed;
+
+    this.feed = function() {
+        animalFeed();
+        console.log ('Кот доволен ^_^');
+        return this; 
+    }
+
+    this.stroke = function () {
+    console.log('Гладим кота');
+    return this;
+    }
+}    
+
+var smoke = new Cat('Smoke');
+smoke.dailyNorm(60);
+smoke.feed().stroke().feed().stroke();
