@@ -20,16 +20,16 @@ function Cat(name) {
     this.name = name;
     var foodAmount = 50;
 
-    this.dailyNorm = function(amout) {
+    this.dailyNorm = function(amount) {
        
-        if (amout < 50) {
+        if (amount < 50) {
             alert ('Корма мало');
-        } else if (amout == undefined) {
+        } else if (amount == undefined) {
             return formatFoodAmount();
-        } else if (amout > 500) {
+        } else if (amount > 500) {
             alert ('Корма много');
         } else {
-            foodAmount = amout;
+            foodAmount = amount;
         }        
     }
 
@@ -53,17 +53,17 @@ function Animal(name) {
     var foodAmount = 50;
     var self = this;
 
-    this.dailyNorm = function(amout) {
+    this.dailyNorm = function(amount) {
     
-        if (amout < 50) {
+        if (amount < 50) {
             alert ('Корма мало');
-        } else if (amout == undefined) {
+        } else if (amount == undefined) {
             return formatFoodAmount();
-        } else if (amout > 500) {
+        } else if (amount > 500) {
             alert ('Корма много');
         } else {
-            foodAmount = amout;
-        }        
+            foodAmount = amount;
+        }
     }
 
     function formatFoodAmount() {
@@ -87,8 +87,8 @@ function Cat(name) {
     }
 
     this.stroke = function () {
-    console.log('Гладим кота');
-    return this;
+        console.log('Гладим кота');
+        return this;
     }
 }    
 
