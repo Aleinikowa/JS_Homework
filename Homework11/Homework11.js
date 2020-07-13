@@ -1,6 +1,6 @@
 //Задание 1:
 function Animal(name) {
-    this._name = name;
+    this.name = name;
     this._foodAmount = 50;
 }
 
@@ -88,26 +88,43 @@ function compare(object1, object2) {
         return false;
     }
 
-    var keysString1 = keys1.join('');
-    var keysString2 = keys2.join('');
-
-    if (keysString1 !== keysString2) {
-        return false;
-    }    
-
-    for (var i = 0; i < keys1.length; i++) {
-        var key = keys1[i];
-        var element = object1[key];
-        var key2 = keys2[i];
-        var element2 = object2[key2];
-
-        if (typeof(element) != typeof(element2)) {
+    for ( var key in object1 ) {
+        if ( ! (object1.hasOwnProperty(key) && object2.hasOwnProperty(key)) ) {
             return false;
         }
-        
-        if ( (typeof(element) == 'object' && typeof(element2) == 'object') || (typeof(element) != 'null' && typeof(element2) != 'null') ) {
-            compare(element, element2);
-        }    
+
+        if ( typeof(object1[key]) != 'object' && typeof(object1[key]) != 'array' && typeof(object1[key]) == 'null' ) {
+            if (object1[key] != object2[key]) {
+                return false;
+            }
+        } 
+
+        if ( typeof(object1[key]) == 'function' && typeof(object2[key]) == 'function' ) {
+            var func1 = object1[key];
+            var func2 = object1[key];
+            var stringFunc1 = func1.toString();
+            var stringFunc2 = func2.toString();
+
+            if (stringFunc1 != stringFunc2) {
+                return false;
+            } 
+        } else if (typeof(object1[key]) == 'object' && typeof(object2[key]) == 'object' && key != 'null' && key != 'null') {
+            return compare(object1[key], object2[key]);
+        } else if (typeof(object1[key]) == 'array' && typeof(object2[key]) == 'array') {
+            var array1 = object1[key];
+            var array2 = object2[key];
+            if (array1.length == array2.length) {
+                for (var i = 0; i < array2.length; i++) {
+                    var element1 = array1[i];
+                    var element2 = array2[i];
+                    if (element1 != element2) {
+                        return false;
+                    }
+                }
+            } else {
+                return false;
+            }
+        }
     }
 
     return true;
