@@ -29,12 +29,9 @@ function isPalindrome(word) {
     var string =  word.toLowerCase();
     var stringReverse = word.toLowerCase().split('').reverse().join('');
 
-    function same(str, str2) {
-        if (str != str2) return false;
-        return true;    
-    }
+    if (string != stringReverse) return false;
 
-    return same(string, stringReverse);
+    return true;
 }
 
 isPalindrome('шалаШ'); // true
