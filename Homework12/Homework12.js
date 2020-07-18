@@ -1,60 +1,54 @@
 //Задание 1:
 var arr = [-1, 0, 2, 34, -2];
 
-var positiveNumbers = arr.filter(function(numbers) {
-    return numbers > 0;
-})
+function filterNumbersArr(numbers) {
 
-positiveNumbers;
+    return numbers.filter(function (item) {
+        return item > 0;
+    });
+}
 
+filterNumbersArr(arr);
 
 //Задание 2:
 var arr = [-1, 0, 2, 34, -2];
 
-var firstPositiveNumber = arr.find(function(numbers) {
-    return numbers > 0;
-})
+function firstPositiveNumber(array) {
 
-firstPositiveNumber;
+    var positiveNumber = array.find(function(item) {
+        return item > 0;
+    });
 
+    return positiveNumber;
+}
 
-// Задание 3:
+firstPositiveNumber(arr);
+
+// //Задание 3:
 function isPalindrome(word) {
-    var array =  word.toLowerCase().split('');
-    var arrayReverse = word.toLowerCase().split('').reverse();
+    var string =  word.toLowerCase();
+    var stringReverse = word.toLowerCase().split('').reverse().join('');
 
-    function same(arr, arr2) {
-        for (var i = 0; i < arr.length; i++) {
-            if (arr[i] === arr2[i]) {
-                continue;
-            } else {
-                return false;
-            }
-        }
-
+    function same(str, str2) {
+        if (str != str2) return false;
         return true;    
     }
 
-    return same(array, arrayReverse);
+    return same(string, stringReverse);
 }
 
 isPalindrome('шалаШ'); // true
 isPalindrome('привет'); // false
 
 
-// Задание 4:
+// // Задание 4:
 function areAnagrams(word1, word2) {
-    var array1 =  word1.toLowerCase().split('');
-    var array2 = word2.toLowerCase().split('');
+    var string =  word1.toLowerCase().split('').sort().join('');
+    var string2 = word2.toLowerCase().split('').sort().join('');
 
-    function same(letter) {
-        for (var i = 0; i < array2.length; i++) {
-            return (letter === array2[i] && array1.length === array2.length);
-        }
-    }
+    if (string != string2) return false;
 
-    var result = array1.some(same);
-    return result;
+    return true;
 }
 
 areAnagrams('кот', 'отк'); // true
@@ -63,18 +57,15 @@ areAnagrams('кот', 'отко'); // false
 
 // Задание 5:
 function divideArr(arr, amount) {
-    var array = arr;
-    var length = arr.length;
     var newArray = [];
 
-    for (var i = 0; i < length; i++) {
-        var temp =  array.splice(0, amount);
+    for (var i = 0; i < arr.length; i++) {
+        var temp =  arr.splice(0, amount);
         newArray.push(temp);
-        if (!array.length) break;
     }
 
     return newArray;
 }
 
 divideArr([1, 2, 3, 4], 2); // [[1, 2], [3, 4]]
-divideArr([1, 2, 3, 4, 5, 6, 7, 8], 3); // [[1, 2, 3], [4, 5, 6], [7, 8]]
+divideArr([1, 2, 3, 4, 5, 6, 7, 8 ], 3); // [[1, 2, 3], [4, 5, 6], [7, 8]]
