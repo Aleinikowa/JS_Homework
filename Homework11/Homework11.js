@@ -33,7 +33,7 @@ Cat.prototype = Object.create(Animal.prototype);
 Cat.prototype.constructor = Cat;
 
 Cat.prototype.feed = function() {
-    Animal.prototype.feed.apply(this);
+    Animal.prototype.feed.apply(this, arguments);
     console.log('Кот доволен ^_^');
     return this;
 };
