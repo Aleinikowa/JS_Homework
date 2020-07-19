@@ -106,4 +106,3 @@ function splitSentence(sentence) {
 }
 
 splitSentence(text);
-    
