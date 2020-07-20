@@ -71,3 +71,35 @@ splitSentence('Привет, студент! Студент... Как дела, 
 // Привет, студент: Letters quantity is: 13
 // Студент: Letters quantity is: 7
 // Как дела, студент: Letters quantity is: 14
+
+
+//Задание 5 *:
+var text = 'Привет всем! Меня зовут Сара. Еще раз, привет всем всем! Также отдельный привет моим друзьям.';
+
+function splitSentence(sentence) {
+    var arrayFromText = sentence.toLowerCase().split(/[, !.]+/);
+    var objectCount = {};
+
+    arrayFromText.forEach(function(item) {
+        objectCount[item] = (objectCount[item] || 0) + 1;
+    });
+
+    var arraySort = [];
+
+    for (var key in objectCount) {
+        arraySort.push([key, objectCount[key]]);
+    }
+
+    arraySort.sort(function(a, b) {
+        return b[1] - a[1];
+    });
+
+    var finalArray = arraySort[0];
+    var finalWord = finalArray[0];
+    var finalValue = finalArray[1];
+
+    return 'Максимальное число повторений у слова "' + finalWord + '" - ' + finalValue;
+
+}
+
+splitSentence(text);
