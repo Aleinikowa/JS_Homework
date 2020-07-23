@@ -1,0 +1,42 @@
+.table {
+    width: 750px;
+    height: auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.table .table__tr {
+    width: 750px;
+    height: 50px;
+}
+.table tr td {
+    text-align: center;
+    width: 250px;
+    height: 50px;
+    border: 1px solid black;
+}  
+.table .table__btn {
+    width: 700px;
+    height: 50px;
+    border: 1px solid black;
+    column-span: 1;
+}
+.table .table__btn:hover, .table tr td:hover  {
+    cursor: pointer;
+}
+.table .table__btn #colspan {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#inputJS {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 30px;
+    width: 200px;
+    box-sizing: border-box;
+}   
+.text {
+    display: inline-block;
+}
