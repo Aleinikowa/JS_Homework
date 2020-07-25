@@ -1,0 +1,41 @@
+.add-value {
+    width: 250px;
+    text-align: center;
+    margin-top: 20px;
+}
+.add-value__input {
+    width: 250px;
+    height: 30px;
+   display: block;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+.input__btn {
+    width: 150px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: gainsboro;
+}
+.input__btn:hover {
+    cursor: pointer;
+}
+.table {
+    border-spacing: 0;
+    margin-top: 20px;
+    width: auto;
+    height: auto;
+    border: 1px solid black;
+}
+.td-size {
+    width: 40px;
+    height: 40px;
+}
+.td-color {
+    background-color: black;
+}
