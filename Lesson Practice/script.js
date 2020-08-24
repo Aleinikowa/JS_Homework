@@ -26,13 +26,15 @@ function preventDef() {
     event.preventDefault();
     var link = event.target,
         linkText = link.textContent,
-        linkHref = link.getAttribute('href');
-    if (localStorage.getItem([linkText]) === null) {
-        localStorage.setItem([linkText], [linkHref]);
+        linkHref = link.getAttribute('href'),
+        objectHref = {path : linkHref};
+    if (localStorage.getItem(linkText) === null) {
+        localStorage.setItem(linkText, JSON.stringify(objectHref));
         link.setAttribute('href', '#');
         alert ('Ссылка была сохранена в localStorage');
     } else {
-        alert(localStorage.getItem([linkText]));
+        var objHref = JSON.parse(localStorage.getItem(linkText));
+        alert(objHref.path);
     } 
 }
 
