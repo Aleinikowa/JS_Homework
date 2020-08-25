@@ -20,7 +20,7 @@ table.onclick = function(event) {
 
         input.addEventListener('keydown', function(event) {
             if(event.keyCode == 13){
-                target = event.target;                
+            target = event.target;                
                 this.parentNode.innerHTML = this.value;
             }
         });
