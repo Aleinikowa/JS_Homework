@@ -26,44 +26,32 @@ img {
 .users__radio {
     display: none;
 }
-.users__radio + label {
-    display: inline-block;
-    background-color: #00ff40;
-    margin-right: 5px;
-    border-radius: 5px 5px 0 0;
-    padding: 5px 20px;
-}
-.information {
-    font-weight: normal;
-}
+
 .users__radio:checked + label {
     background-color: white;
 }
 .users__radio + label:hover {
     cursor: pointer;
 }
-.users__radio + label + div {
-    display: none;
-}
-input.users__radio:checked + label + div {
-    display: block;
-    width: 515px;
-    height: auto;
-    position: absolute;
-    left: 0;
-    top: 35px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px;
+.users__label {
+    display: inline-block;
+    background-color: #00ff40;
+    margin-right: 5px;
+    border-radius: 5px 5px 0 0;
+    padding: 5px 20px;
 }
 .error {
     display: none;
     margin-left: 30px;
-
 }
 .error p {
     display: inline-block;
     background-color: red;
     padding: 15px 30px;
     color: white;
+}
+.anyUser {
+    background-color: white;
+    width: auto;
+    width: 518px;
 }
